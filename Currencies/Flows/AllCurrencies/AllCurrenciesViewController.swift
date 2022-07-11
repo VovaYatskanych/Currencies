@@ -15,10 +15,24 @@ final class AllCurrenciesViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
     
+    private var currencies: [String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        getData()
         setupUI()
+    }
+    
+    private func getData() {
+        NetworkManager.shared.getCurrencies { [weak self] result in
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success(let response):
+                self?.currencies = Array(response.rates.keys)
+                self?.tableView.reloadData()
+            }
+        }
     }
     
     private func setupUI() {
@@ -33,13 +47,14 @@ final class AllCurrenciesViewController: UIViewController {
 
 extension AllCurrenciesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        currencies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.allCellID, for: indexPath) as? AllCell else {
             return UITableViewCell()
         }
+        cell.configure(with: currencies[indexPath.row])
         return cell
     }
     

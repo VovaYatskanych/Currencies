@@ -13,6 +13,8 @@
 		BE1FBB2C287CA0F500E4D62D /* AllCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE1FBB2A287CA0F500E4D62D /* AllCell.xib */; };
 		BE1FBB30287CAACA00E4D62D /* MyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1FBB2E287CAACA00E4D62D /* MyCell.swift */; };
 		BE1FBB31287CAACA00E4D62D /* MyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE1FBB2F287CAACA00E4D62D /* MyCell.xib */; };
+		BE1FBB34287CAF1300E4D62D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1FBB33287CAF1300E4D62D /* NetworkManager.swift */; };
+		BE1FBB37287CAFCD00E4D62D /* CurrencyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1FBB36287CAFCD00E4D62D /* CurrencyResponse.swift */; };
 		BEC91A1E287C8BF100BFCA50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC91A1D287C8BF100BFCA50 /* AppDelegate.swift */; };
 		BEC91A20287C8BF100BFCA50 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC91A1F287C8BF100BFCA50 /* SceneDelegate.swift */; };
 		BEC91A27287C8BF400BFCA50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEC91A26287C8BF400BFCA50 /* Assets.xcassets */; };
@@ -30,6 +32,8 @@
 		BE1FBB2A287CA0F500E4D62D /* AllCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllCell.xib; sourceTree = "<group>"; };
 		BE1FBB2E287CAACA00E4D62D /* MyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCell.swift; sourceTree = "<group>"; };
 		BE1FBB2F287CAACA00E4D62D /* MyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCell.xib; sourceTree = "<group>"; };
+		BE1FBB33287CAF1300E4D62D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		BE1FBB36287CAFCD00E4D62D /* CurrencyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyResponse.swift; sourceTree = "<group>"; };
 		BEC91A1A287C8BF100BFCA50 /* Currencies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Currencies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEC91A1D287C8BF100BFCA50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BEC91A1F287C8BF100BFCA50 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +84,22 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		BE1FBB32287CAEFF00E4D62D /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				BE1FBB33287CAF1300E4D62D /* NetworkManager.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		BE1FBB35287CAF1900E4D62D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BE1FBB36287CAFCD00E4D62D /* CurrencyResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		BEC91A11287C8BF100BFCA50 = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +122,8 @@
 				BEC91A1D287C8BF100BFCA50 /* AppDelegate.swift */,
 				BEC91A1F287C8BF100BFCA50 /* SceneDelegate.swift */,
 				BEC91A31287C8E3F00BFCA50 /* Flows */,
+				BE1FBB32287CAEFF00E4D62D /* Networking */,
+				BE1FBB35287CAF1900E4D62D /* Models */,
 				BEC91A26287C8BF400BFCA50 /* Assets.xcassets */,
 				BEC91A28287C8BF400BFCA50 /* LaunchScreen.storyboard */,
 				BEC91A2B287C8BF400BFCA50 /* Info.plist */,
@@ -214,10 +236,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE1FBB37287CAFCD00E4D62D /* CurrencyResponse.swift in Sources */,
 				BEC91A1E287C8BF100BFCA50 /* AppDelegate.swift in Sources */,
 				BEC91A39287C915600BFCA50 /* AllCurrenciesViewController.swift in Sources */,
 				BEC91A37287C914200BFCA50 /* MyCurrenciesViewController.swift in Sources */,
 				BE1FBB2B287CA0F500E4D62D /* AllCell.swift in Sources */,
+				BE1FBB34287CAF1300E4D62D /* NetworkManager.swift in Sources */,
 				BE1FBB30287CAACA00E4D62D /* MyCell.swift in Sources */,
 				BEC91A20287C8BF100BFCA50 /* SceneDelegate.swift in Sources */,
 				BE1FBB25287C96C300E4D62D /* MainViewController.swift in Sources */,

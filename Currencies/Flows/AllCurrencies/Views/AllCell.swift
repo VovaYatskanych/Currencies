@@ -21,9 +21,12 @@ final class AllCell: UITableViewCell {
         super.awakeFromNib()
         setupUI()
     }
+    
+    func configure(with title: String) {
+        titleLabel.text = title
+    }
 
     private func setupUI() {
-        titleLabel.text = "Test"
         addButton.layer.cornerRadius = Constants.cornerRadius
         configureAddButton(isSelected: true)
     }
