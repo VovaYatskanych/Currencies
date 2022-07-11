@@ -16,8 +16,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="377" height="155"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ixy-L3-KJl">
-                        <rect key="frame" x="40" y="67" width="42" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ixy-L3-KJl">
+                        <rect key="frame" x="40" y="67.5" width="189" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -38,7 +38,7 @@
                 <constraints>
                     <constraint firstItem="ixy-L3-KJl" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Awa-oM-dEK"/>
                     <constraint firstItem="ixy-L3-KJl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="20" id="IvX-kY-vBx"/>
-                    <constraint firstItem="r1j-VD-sUM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ixy-L3-KJl" secondAttribute="trailing" constant="8" id="f8f-3H-m1Y"/>
+                    <constraint firstItem="r1j-VD-sUM" firstAttribute="leading" secondItem="ixy-L3-KJl" secondAttribute="trailing" constant="8" id="f8f-3H-m1Y"/>
                     <constraint firstItem="r1j-VD-sUM" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="v2o-kJ-v2T"/>
                     <constraint firstAttribute="trailingMargin" secondItem="r1j-VD-sUM" secondAttribute="trailing" constant="20" id="z1O-me-No2"/>
                 </constraints>

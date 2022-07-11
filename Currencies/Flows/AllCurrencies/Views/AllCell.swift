@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AllCell: UITableViewCell {
+final class AllCell: UITableViewCell {
     private struct Constants {
         static let cornerRadius: CGFloat = 6
         static let buttonAddTitle = "Add"

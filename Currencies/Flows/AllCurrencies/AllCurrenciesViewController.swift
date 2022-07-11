@@ -9,7 +9,7 @@ import UIKit
 
 final class AllCurrenciesViewController: UIViewController {
     private struct Constants {
-        static let cellID = "AllCell"
+        static let allCellID = "AllCell"
         static let viewControllerID = "AllCurrencies"
     }
     
@@ -22,8 +22,8 @@ final class AllCurrenciesViewController: UIViewController {
     }
     
     private func setupUI() {
-        tableView.register(UINib(nibName: Constants.cellID, bundle: nil),
-                           forCellReuseIdentifier: Constants.cellID)
+        tableView.register(UINib(nibName: Constants.allCellID, bundle: nil),
+                           forCellReuseIdentifier: Constants.allCellID)
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -37,10 +37,14 @@ extension AllCurrenciesViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellID, for: indexPath) as? AllCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.allCellID, for: indexPath) as? AllCell else {
             return UITableViewCell()
         }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
