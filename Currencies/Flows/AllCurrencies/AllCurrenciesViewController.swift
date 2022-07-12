@@ -15,31 +15,39 @@ final class AllCurrenciesViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
     
-    private var currencies: [String] = []
+    private var currencies: [Currency] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         getData()
-        setupUI()
+        setupTableView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        updateData()
     }
     
     private func getData() {
-        NetworkManager.shared.getCurrencies { [weak self] result in
-            switch result {
-            case .failure(let error):
-                print(error)
-            case .success(let response):
-                self?.currencies = Array(response.rates.keys)
-                self?.tableView.reloadData()
-            }
-        }
+        CurrencyService.shared.getCurrencies(completion: { [weak self] currencies in
+            self?.currencies = currencies
+            self?.tableView.reloadData()
+        })
     }
     
-    private func setupUI() {
+    private func setupTableView() {
         tableView.register(UINib(nibName: Constants.allCellID, bundle: nil),
                            forCellReuseIdentifier: Constants.allCellID)
         tableView.delegate = self
         tableView.dataSource = self
+    }
+}
+
+// MARK: - SetFavoriteDelegate
+
+extension AllCurrenciesViewController: SetFavoriteDelegate {
+    func updateData() {
+        currencies = CurrencyService.shared.getCurrencies()
+        tableView.reloadData()
     }
 }
 
@@ -54,7 +62,7 @@ extension AllCurrenciesViewController: UITableViewDelegate, UITableViewDataSourc
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.allCellID, for: indexPath) as? AllCell else {
             return UITableViewCell()
         }
-        cell.configure(with: currencies[indexPath.row])
+        cell.configure(with: currencies[indexPath.row], delegate: self)
         return cell
     }
     
@@ -63,6 +71,7 @@ extension AllCurrenciesViewController: UITableViewDelegate, UITableViewDataSourc
     }
 }
 
+// MARK: - Static
 
 extension AllCurrenciesViewController {
     private static var allCurrenciesStoryboard: UIStoryboard {

@@ -13,22 +13,29 @@ final class AllCell: UITableViewCell {
         static let buttonAddTitle = "Add"
         static let buttonRemoveTitle = "Remove"
     }
-    
+
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var addButton: UIButton!
+
+    private weak var delegate: SetFavoriteDelegate?
+    private var currency: Currency?
+    
+    var addToFavoriteFunction: (() -> ())?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         setupUI()
     }
     
-    func configure(with title: String) {
-        titleLabel.text = title
+    func configure(with currency: Currency, delegate: SetFavoriteDelegate) {
+        self.currency = currency
+        self.delegate = delegate
+        titleLabel.text = currency.name
+        configureAddButton(isSelected: !currency.isFavorite)
     }
 
     private func setupUI() {
         addButton.layer.cornerRadius = Constants.cornerRadius
-        configureAddButton(isSelected: true)
     }
     
     private func configureAddButton(isSelected: Bool) {
@@ -39,7 +46,7 @@ final class AllCell: UITableViewCell {
         } else {
             addButton.isSelected = true
             addButton.setTitle(Constants.buttonRemoveTitle, for: .normal)
-            addButton.backgroundColor = .lightGray
+            addButton.backgroundColor = .lightText
         }
     }
 }
@@ -48,6 +55,8 @@ final class AllCell: UITableViewCell {
 
 private extension AllCell {
     @IBAction func addButtonPressed(_ sender: UIButton) {
-        configureAddButton(isSelected: sender.isSelected)
+        guard let currency = currency else { return }
+        CurrencyService.shared.setNewStatus(for: currency)
+        delegate?.updateData()
     }
 }

@@ -9,4 +9,8 @@ import UIKit
 
 final class MyCell: UITableViewCell {
     @IBOutlet private weak var titleLabel: UILabel!
+    
+    func configure(with title: String) {
+        titleLabel.text = title
+    }
 }
