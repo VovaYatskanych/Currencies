@@ -100,6 +100,11 @@ extension AllCurrenciesViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        let exchangeViewController = ExchangeViewController.instantiateExchangeViewController()
+        exchangeViewController.configure(with: currencies[indexPath.row])
+        exchangeViewController.hidesBottomBarWhenPushed = true
+        self.present(exchangeViewController, animated: true)
     }
 }
 

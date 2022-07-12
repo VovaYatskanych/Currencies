@@ -11,6 +11,8 @@
 		BE05B853287D6755003584BF /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE05B852287D6755003584BF /* Currency.swift */; };
 		BE05B856287D7BAE003584BF /* SetFavoriteDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE05B855287D7BAE003584BF /* SetFavoriteDelegate.swift */; };
 		BE05B85D287D889F003584BF /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE05B85C287D889F003584BF /* UIViewController+Extension.swift */; };
+		BE05B860287D8A16003584BF /* ExchangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE05B85F287D8A16003584BF /* ExchangeViewController.swift */; };
+		BE05B862287D8A1C003584BF /* Exchange.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE05B861287D8A1C003584BF /* Exchange.storyboard */; };
 		BE1FBB25287C96C300E4D62D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1FBB24287C96C300E4D62D /* MainViewController.swift */; };
 		BE1FBB27287C96CC00E4D62D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE1FBB26287C96CC00E4D62D /* Main.storyboard */; };
 		BE1FBB2B287CA0F500E4D62D /* AllCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1FBB29287CA0F500E4D62D /* AllCell.swift */; };
@@ -34,6 +36,8 @@
 		BE05B852287D6755003584BF /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		BE05B855287D7BAE003584BF /* SetFavoriteDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetFavoriteDelegate.swift; sourceTree = "<group>"; };
 		BE05B85C287D889F003584BF /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		BE05B85F287D8A16003584BF /* ExchangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewController.swift; sourceTree = "<group>"; };
+		BE05B861287D8A1C003584BF /* Exchange.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Exchange.storyboard; sourceTree = "<group>"; };
 		BE1FBB24287C96C300E4D62D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		BE1FBB26287C96CC00E4D62D /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		BE1FBB29287CA0F500E4D62D /* AllCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCell.swift; sourceTree = "<group>"; };
@@ -95,6 +99,15 @@
 				BE05B85C287D889F003584BF /* UIViewController+Extension.swift */,
 			);
 			path = UIKit;
+			sourceTree = "<group>";
+		};
+		BE05B85E287D89F7003584BF /* Exchange */ = {
+			isa = PBXGroup;
+			children = (
+				BE05B85F287D8A16003584BF /* ExchangeViewController.swift */,
+				BE05B861287D8A1C003584BF /* Exchange.storyboard */,
+			);
+			path = Exchange;
 			sourceTree = "<group>";
 		};
 		BE1FBB21287C96AB00E4D62D /* Main */ = {
@@ -181,6 +194,7 @@
 				BE1FBB21287C96AB00E4D62D /* Main */,
 				BEC91A32287C90EB00BFCA50 /* AllCurrencies */,
 				BEC91A33287C910000BFCA50 /* MyCurrencies */,
+				BE05B85E287D89F7003584BF /* Exchange */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -268,6 +282,7 @@
 				BEC91A2A287C8BF400BFCA50 /* LaunchScreen.storyboard in Resources */,
 				BE1FBB2C287CA0F500E4D62D /* AllCell.xib in Resources */,
 				BE1FBB31287CAACA00E4D62D /* MyCell.xib in Resources */,
+				BE05B862287D8A1C003584BF /* Exchange.storyboard in Resources */,
 				BEC91A27287C8BF400BFCA50 /* Assets.xcassets in Resources */,
 				BEC91A3F287C919F00BFCA50 /* AllCurrencies.storyboard in Resources */,
 			);
@@ -289,6 +304,7 @@
 				BEC91A37287C914200BFCA50 /* MyCurrenciesViewController.swift in Sources */,
 				BE1FBB2B287CA0F500E4D62D /* AllCell.swift in Sources */,
 				BE05B853287D6755003584BF /* Currency.swift in Sources */,
+				BE05B860287D8A16003584BF /* ExchangeViewController.swift in Sources */,
 				BE1FBB34287CAF1300E4D62D /* NetworkManager.swift in Sources */,
 				BE1FBB30287CAACA00E4D62D /* MyCell.swift in Sources */,
 				BEC91A20287C8BF100BFCA50 /* SceneDelegate.swift in Sources */,
