@@ -6,5 +6,5 @@
 //
 
 protocol SetFavoriteDelegate: AnyObject {
-    func updateData()
+    func updateCurrency(currency: Currency)
 }

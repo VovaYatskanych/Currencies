@@ -14,6 +14,7 @@ final class AllCurrenciesViewController: UIViewController {
     }
     
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var searchBar: UISearchBar!
     
     private var currencies: [Currency] = []
     
@@ -21,6 +22,8 @@ final class AllCurrenciesViewController: UIViewController {
         super.viewDidLoad()
         getData()
         setupTableView()
+        searchBar.delegate = self
+        hideKeyboardByTapping()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,13 +43,42 @@ final class AllCurrenciesViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
     }
+    
+    private func updateData() {
+        currencies = CurrencyService.shared.getCurrencies()
+        tableView.reloadData()
+    }
+}
+
+// MARK: - UISearchBarDelegate
+
+extension AllCurrenciesViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard !searchText.isEmpty else {
+            updateData()
+            return
+        }
+        
+        currencies = CurrencyService.shared.getCurrencies().filter { (item: Currency) -> Bool in
+            return item.name.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+        }
+        tableView.reloadData()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+    }
 }
 
 // MARK: - SetFavoriteDelegate
 
 extension AllCurrenciesViewController: SetFavoriteDelegate {
-    func updateData() {
-        currencies = CurrencyService.shared.getCurrencies()
+    func updateCurrency(currency: Currency) {
+        for (index, item) in currencies.enumerated() {
+            if item == currency {
+                currencies[index].isFavorite = !currency.isFavorite
+            }
+        }
         tableView.reloadData()
     }
 }

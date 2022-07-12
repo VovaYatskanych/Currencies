@@ -57,6 +57,6 @@ private extension AllCell {
     @IBAction func addButtonPressed(_ sender: UIButton) {
         guard let currency = currency else { return }
         CurrencyService.shared.setNewStatus(for: currency)
-        delegate?.updateData()
+        delegate?.updateCurrency(currency: currency)
     }
 }
