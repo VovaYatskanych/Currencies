@@ -50,6 +50,19 @@ final class AllCurrenciesViewController: UIViewController {
     }
 }
 
+// MARK: - SetFavoriteDelegate
+
+extension AllCurrenciesViewController: SetFavoriteDelegate {
+    func updateCurrency(currency: Currency) {
+        for (index, item) in currencies.enumerated() {
+            if item == currency {
+                currencies[index].isFavorite = !currency.isFavorite
+            }
+        }
+        tableView.reloadData()
+    }
+}
+
 // MARK: - UISearchBarDelegate
 
 extension AllCurrenciesViewController: UISearchBarDelegate {
@@ -67,19 +80,6 @@ extension AllCurrenciesViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.endEditing(true)
-    }
-}
-
-// MARK: - SetFavoriteDelegate
-
-extension AllCurrenciesViewController: SetFavoriteDelegate {
-    func updateCurrency(currency: Currency) {
-        for (index, item) in currencies.enumerated() {
-            if item == currency {
-                currencies[index].isFavorite = !currency.isFavorite
-            }
-        }
-        tableView.reloadData()
     }
 }
 

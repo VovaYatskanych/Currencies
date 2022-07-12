@@ -11,7 +11,7 @@ final class NetworkManager {
     static let shared = NetworkManager()
     
     private var currenciesUrl = "https://api.exchangerate.host/latest"
-    private var rateUrl = "https://api.exchangerate.host/convert?from=EUR&to=*&amount=#"
+    private var rateUrl = "https://api.exchangerate.host/convert"
     
     func getCurrencies(completion: @escaping (Result<CurrencyResponse, Error>) -> Void) {
         guard let url = URL(string: currenciesUrl) else { return }
@@ -41,12 +41,14 @@ final class NetworkManager {
     }
     
     func getRate(for currency: String, amount: Float, completion: @escaping (Result<Rate, Error>) -> Void) {
+        let queryItems = [URLQueryItem(name: "from", value: "EUR"),
+                          URLQueryItem(name: "to", value: currency),
+                          URLQueryItem(name: "amount", value: String(amount))]
         
-        let complexUrl = rateUrl.replacingOccurrences(of: "*", with: currency)
-            .replacingOccurrences(of: "#", with: String(amount))
-        
-        guard let url = URL(string: complexUrl) else { return }
-        
+        guard var urlComponents = URLComponents(string: rateUrl) else { return }
+        urlComponents.queryItems = queryItems
+        guard let url = urlComponents.url else { return }
+                
         DispatchQueue.global().async {
             let dataTask = URLSession.shared.dataTask(with: url) { data, response, error in
                 if let error = error {
@@ -69,10 +71,5 @@ final class NetworkManager {
             }
             dataTask.resume()
         }
-
     }
-}
-
-struct Rate: Decodable {
-    let result: Float
 }

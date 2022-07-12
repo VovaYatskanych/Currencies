@@ -33,7 +33,7 @@ final class MyCurrenciesViewController: UIViewController {
         tableView.dataSource = self
     }
     
-    func updateData() {
+    private func updateData() {
         currencies = CurrencyService.shared.getCurrencies().filter({ $0.isFavorite })
         tableView.reloadData()
     }

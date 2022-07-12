@@ -19,9 +19,7 @@ final class AllCell: UITableViewCell {
 
     private weak var delegate: SetFavoriteDelegate?
     private var currency: Currency?
-    
-    var addToFavoriteFunction: (() -> ())?
-    
+        
     override func awakeFromNib() {
         super.awakeFromNib()
         setupUI()
